@@ -1,0 +1,19 @@
+{
+    "files.associations": {
+        "pcap.h": "c",
+        "bpf.h": "c",
+        "pcap-stdinc.h": "c",
+        "cstdlib": "c",
+        "stdio.h": "c",
+        "*.tcc": "cpp",
+        "iostream": "cpp",
+        "remote-ext.h": "c",
+        "typeinfo": "cpp",
+        "stdlib.h": "c",
+        "math.h": "c",
+        "thread": "cpp",
+        "memory": "cpp",
+        "cmath": "c",
+        "setjmp.h": "c"
+    }
+}

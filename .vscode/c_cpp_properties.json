@@ -1,0 +1,31 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "D:\\Program Files (x86)\\MinGW\\include",
+                "D:\\Program Files (x86)\\MinGW\\msys\\1.0\\include"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE",
+                "_XKEYCHECK_H"
+            ],
+            "compilerPath": "\"D:\\Program Files (x86)\\MinGW\\bin\\gcc.exe\"",
+            "cppStandard": "c++11",
+            "intelliSenseMode": "${default}",
+            "cStandard": "c99",
+            "compilerArgs": [],
+            "browse": {
+                "path": [
+                    "${workspaceFolder}/**",
+                    "D:/DevelopmentWorkspace/VisualStudioCode/CProgram/Include/**"
+                ],
+                "limitSymbolsToIncludedHeaders": true
+            }
+        }
+    ],
+    "version": 4
+}
