@@ -1,8 +1,3 @@
-/*
- * @author: 2019407229_程曾
- * @Date:
- * @LastEditTime: 2020-03-13 19:41:21
- */
 
 #include <stdio.h>
 #include <stdlib.h>

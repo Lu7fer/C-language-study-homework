@@ -1,9 +1,4 @@
-/** 
- * @Author : Lucifer_程曾
- * @Date: 2020-03-27 19:40:08
- * @LastEditTime: 2020-03-27 22:53:54
- * @Programmed by Lucifer
- */
+
 
 #include <stdio.h>
 #include <stdlib.h>

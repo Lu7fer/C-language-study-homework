@@ -1,10 +1,3 @@
-/** 
- * @Author : Lucifer_程曾
- * @Date: 2020-04-14 19:18:19
- * @LastEditTime: 2020-04-14 20:57:30
- * @Description: Programmed by Lucifer
- * @FilePath: \Homework\times13\times13_q02.c
- */
 
 #include <stdio.h>
 #include <stdlib.h>

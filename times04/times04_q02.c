@@ -1,7 +1,3 @@
-/*
- * @author: 2019407229_程曾
- * @LastEditTime: 2020-03-15 16:36:13
- */
 
 #include <stdio.h>
 #include <stdlib.h>

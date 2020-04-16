@@ -14,6 +14,7 @@
         "thread": "cpp",
         "memory": "cpp",
         "cmath": "c",
-        "setjmp.h": "c"
+        "setjmp.h": "c",
+        "windows.h": "c"
     }
 }

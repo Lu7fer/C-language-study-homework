@@ -1,9 +1,6 @@
-/** 
- * @ *Author : Lucifer_程曾
- * @Date: 2020-03-28 16:33:35
- * @LastEditTime: 2020-03-28 17:41:39
- * @Description: Programmed by Lucifer
- */
+
+
+
 /* times08_q02-01.c */
 #include <stdlib.h>
 #include <stdio.h>

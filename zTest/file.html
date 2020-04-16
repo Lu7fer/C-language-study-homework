@@ -1,0 +1,36 @@
+<!--
+ * @Author : Lucifer_程曾
+ * @Date: 2020-04-12 16:35:13
+ * @LastEditTime: 2020-04-12 16:49:24
+ * @Description: Programmed by Lucifer
+ * @FilePath: \Homework\zTest\file.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="#" method="POST" id="form">
+        <input type="file" name="file" id="file">
+        <input type="button" value="subbit" id="submit" onclick="cl()">
+    </form>
+    <script>
+        var submit = document.getElementById("submit");
+        var file = document.getElementById("file");
+        var form = document.getElementById("form");
+        console.log("t");
+        function cl(){
+            var f=file.file;
+            alert(f.name);
+            return false;
+        }
+    </script>
+</body>
+
+</html>

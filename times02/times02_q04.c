@@ -1,7 +1,4 @@
-/*
- * @author: 2019407229_程曾
- * @LastEditTime: 2020-03-05 11:55:02
- */
+
 
 #include <stdio.h>
 #include <stdlib.h>

@@ -1,20 +1,16 @@
 
-
 #include <stdio.h>
 #include <stdlib.h>
 
-int f(int n);
-
 int main(int argc, char const *argv[])
 {
-    printf("%d\n", f(4));
+    int i;
+
+    for(i=0;i<argc;i++){
+        printf("%p\n",argv[i]);
+        printf("%s\n",argv[i]);
+    }
     system("pause");
     return 0;
 }
 
-int f(int n)
-{
-    if (n == 1)
-        return 1;
-    return n * f(n - 1);
-}
