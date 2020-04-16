@@ -15,6 +15,117 @@
         "memory": "cpp",
         "cmath": "c",
         "setjmp.h": "c",
-        "windows.h": "c"
-    }
+        "windows.h": "c",
+    },
+    "files.autoSave": "afterDelay",
+    "editor.fontFamily": "'Comic Sans MS',经典行书简,Consolas, 'Courier New', monospace",
+    "editor.fontWeight": "100",
+    "editor.formatOnPaste": true,
+    "editor.quickSuggestions": {
+        "other": true,
+        "comments": true,
+        "strings": false
+    },
+    "editor.quickSuggestionsDelay": 300,
+    // 头部注释
+    "fileheader.customMade": {
+        // 头部注释默认字段
+        "Author ": "Lu7fer",
+        "Date": "Do not edit", // 设置后默认设置文件生成时间
+        "LastEditTime": "Do not edit", // 设置后，保存文件更改默认更新最后编辑时间
+        // "LastEditors": "your name", // 设置后，保存文件更改默认更新最后编辑人
+        "Stu_ID": "2019X....X229_Lu7fer",
+        "FilePath": "Do not edit", // 设置后，默认生成文件相对于项目的路径
+        "Github": "https://github.com/Lu7fer/C-language-study-homework",
+        "custom_string_obkoro1": "Copyright\r\n-------------------------------------------\r\nCopyright (C) 2020 - Lu7fer\r\nC-language-study-homework is free software: you can redistribute it and/or modify it under the terms\r\nof the GNU General Public License as published by the Free Software Foundation,\r\neither version 3 of the License, or (at your option) any later version.\r\n \r\nYou should have received a copy of the GNU General Public License along with C-language-study-homework. \r\nIf not, see <http: //www.gnu.org/licenses/>.\r\n-------------------------------------------",
+    },
+    // 函数注释
+    "fileheader.cursorMode": {
+        // 默认字段
+        "description": "",
+        "param": "",
+        "return": ""
+    },
+    // 插件配置项
+    "fileheader.configObj": {
+        "autoAdd": true, // 检测文件没有头部注释，自动添加文件头部注释
+        "autoAddLine": 400, // 文件超过多少行数 不再自动添加头部注释
+        "autoAlready": true, // 只添加插件支持的语言以及用户通过`language`选项自定义的注释
+        // 自动添加头部注释黑名单
+        "prohibitAutoAdd": [
+            "md/json"
+        ],
+        "prohibitItemAutoAdd": [
+            "项目的全称禁止项目自动添加头部注释, 使用快捷键自行添加"
+        ],
+        // 头部注释第几行插入
+        "headInsertLine": {
+            "php": 2, // php文件 插入到第二行
+            "c": 1,
+            "cpp": 1,
+            "html": 1,
+            "htm": 1
+        },
+        "beforeAnnotation": {}, // 头部注释之前插入内容
+        "afterAnnotation": {}, // 头部注释之后插入内容
+        "specialOptions": {}, // 特殊字段自定义
+        "switch": {
+            "newlineAddAnnotation": false // 默认遇到换行符(\r\n \n \r)添加注释符号
+        },
+        "wideSame": false, // 头部注释等宽设置
+        "wideNum": 13, // 头部注释字段长度 默认为13
+        "moveCursor": false, // 自动移动光标到Description所在行
+        "dateFormat": "YYYY-MM-DD HH:mm:ss",
+        "atSymbol": "@", // 更改所有文件的自定义注释中的@符号
+        "atSymbolObj": {}, //  更改单独语言/文件的@
+        "colon": ": ", // 更改所有文件的注释冒号
+        "colonObj": {}, //  更改单独语言/文件的冒号
+        //"filePathColon": "\\", // 默认值： mac: / window是: \
+        "showErrorMessage": true, // 是否显示插件错误通知 用于debugger
+        "CheckFileChange": true, // 单个文件保存时进行diff检查
+        "createHeader": true, // 新建文件自动添加头部注释
+        // 自定义语言注释符号，覆盖插件的注释格式
+        "language": {
+            // "json": {
+            //     "head": "/**",
+            //     "middle": " * @",
+            //     "end": " */\r\n"
+            // },
+            // 一次匹配多种文件后缀文件 不用重复设置 h/hpp/
+            "c/cpp/java": {
+                "head": "/** ", // 统一增加几个*号
+                "middle": " * @",
+                "end": " */"
+            },
+            "jsp": {
+                "head": "<%--",
+                "middle": " * @",
+                "end": "-->\n"
+            },
+            // 针对有特殊要求的文件如：test.blade.php
+            "blade.php/html/htm": {
+                "head": "<!--",
+                "middle": " * @",
+                "end": "-->\n",
+                "use": true
+            }
+        },
+        // 默认注释  没有匹配到注释符号的时候使用。
+        "annotationStr": {
+            "head": "/**",
+            "middle": " * @",
+            "end": " */\r\n",
+            "use": true
+        },
+    },
+    "editor.fontSize": 15,
+    "terminal.integrated.confirmOnExit": true,
+    "terminal.integrated.cursorStyle": "underline",
+    "terminal.integrated.cursorBlinking": true,
+    "terminal.integrated.fontFamily": "Consolas,宋体",
+    "debug.console.fontFamily": "Consolas,宋体",
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "explorer.confirmDelete": false,
+    "editor.rulers": [],
 }
