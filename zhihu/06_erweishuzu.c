@@ -1,11 +1,11 @@
 /** 
  * @Author : Lu7fer
- * @Date: 2020-04-11 08:47:03
- * @LastEditTime: 2020-04-16 09:58:02
+ * @Date: 2020-04-17 22:20:25
+ * @LastEditTime: 2020-04-17 22:54:34
+ * @FilePath: \C-language-study-homework\zhihu\06_erweishuzu.c
  * @Stu_ID: 2019X....X229_Lu7fer
- * @FilePath: \C-language-study-homework\zhihu\05_dafen.c
  * @Github: https://github.com/Lu7fer/C-language-study-homework
- * @
+ * @Copyright
 -------------------------------------------
 Copyright (C) 2020 - Lu7fer
 C-language-study-homework is free software: you can redistribute it and/or modify it under the terms
@@ -17,7 +17,9 @@ If not, see <http: //www.gnu.org/licenses/>.
 -------------------------------------------
  */
 
+#include <stdlib.h>
 #include <stdio.h>
+
 int main()
 {
     int i, j, n;
@@ -37,10 +39,23 @@ int main()
         }
 
         ave[n / 5][n % 5] = (sum - max - min) / 3.0;
-        printf("该选手的平均分%3.2lf\n", ave[n]);
+        printf("该选手的平均分%6.2lf\n", ave[n / 5][n % 5] );
     }
     /* 转成一维数组引用*/
     double *aver = (double *)ave;
+    for (i = 0; i < 10; i++)
+    {
+        for (j = 1; j < 10 - i; j++)
+        {
+            if (aver[j - 1] < aver[j])
+            {
+                tmp = aver[j];
+                aver[j] = aver[j - 1];
+                aver[j - 1] = tmp;
+            }
+        }
+    }
+    /* 或者不那么做,当然代码变得很难看*/
     for (i = 0; i < 10; i++)
     {
         for (j = 1; j < 10 - i; j++)

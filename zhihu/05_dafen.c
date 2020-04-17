@@ -17,7 +17,9 @@ If not, see <http: //www.gnu.org/licenses/>.
 -------------------------------------------
  */
 
+#include <stdlib.h>
 #include <stdio.h>
+
 int main()
 {
     int i, j, n;
@@ -26,7 +28,7 @@ int main()
     printf("校园歌手大赛计分系统\n");
     for (n = 0; n < 10; n++)
     {
-        max = 0.0, min = 100.0,sum = 0.0;
+        max = 0.0, min = 100.0, sum = 0.0;
         printf("请输入评委的分数\n");
         for (i = 0; i <= 4; i++)
         {
