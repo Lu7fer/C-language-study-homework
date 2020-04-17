@@ -55,19 +55,22 @@ int main()
             }
         }
     }
-    /* 或者不那么做,当然代码变得很难看*/
+
+    /* 或者不那么做,当然代码变得很难看
     for (i = 0; i < 10; i++)
     {
         for (j = 1; j < 10 - i; j++)
         {
-            if (aver[j - 1] < aver[j])
+            n=j-1;
+            if (ave[n / 5][n % 5] < ave[j / 5][j % 5])
             {
-                tmp = aver[j];
-                aver[j] = aver[j - 1];
-                aver[j - 1] = tmp;
+                tmp = ave[j / 5][j % 5];
+                ave[j / 5][j % 5] = ave[n / 5][n % 5];
+                ave[n / 5][n % 5] = tmp;
             }
         }
     }
+*/
     printf("每位选手的得分:\n");
     for (i = 0; i < 2; i++)
     {
