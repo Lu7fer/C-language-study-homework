@@ -22,7 +22,7 @@ int main()
 {
     int i, j, n;
     //可输入的分数上限和下限由min与max决定,不然有bug
-    double sum, ave[2][5], x[5], tmp, max, min;
+    double sum, ave[10], x[5], tmp, max, min;
     printf("校园歌手大赛计分系统\n");
     for (n = 0; n < 10; n++)
     {
@@ -35,32 +35,28 @@ int main()
             max = (max < x[i]) ? x[i] : max;
             min = (min > x[i]) ? x[i] : min;
         }
-
-        ave[n / 5][n % 5] = (sum - max - min) / 3.0;
+        ave[n] = (sum - max - min) / 3.0;
         printf("该选手的平均分%3.2lf\n", ave[n]);
     }
-    /* 转成一维数组引用*/
-    double *aver = (double *)ave;
+
     for (i = 0; i < 10; i++)
     {
         for (j = 1; j < 10 - i; j++)
         {
-            if (aver[j - 1] < aver[j])
+            if (ave[j - 1] < ave[j])
             {
-                tmp = aver[j];
-                aver[j] = aver[j - 1];
-                aver[j - 1] = tmp;
+                tmp = ave[j];
+                ave[j] = ave[j - 1];
+                ave[j - 1] = tmp;
             }
         }
     }
+    /*转为二维数组*/
+    double(*aver)[5] = (double *)[5]ave;
     printf("每位选手的得分:\n");
-    for (i = 0; i < 2; i++)
+    for (i = 0; i < 10; i++)
     {
-        for (j = 0; j < 5; j++)
-        {
-            printf("%8.2lf  ", ave[i][j]);
-        }
-        printf("\n");
+        printf("%3.1lf  ", ave[i]);
     }
     system("pause");
     return 0;
