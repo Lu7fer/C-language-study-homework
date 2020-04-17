@@ -52,7 +52,7 @@ int main()
         }
     }
     /*转为二维数组*/
-    double(*aver)[5] = (double *)[5]ave;
+    //double(*aver)[5] = (double *)[5]ave;
     printf("每位选手的得分:\n");
     for (i = 0; i < 10; i++)
     {
