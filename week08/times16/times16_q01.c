@@ -1,7 +1,7 @@
 /** 
  * @Author : Lu7fer
  * @Date: 2020-04-23 10:10:22
- * @LastEditTime: 2020-04-23 12:03:21
+ * @LastEditTime: 2020-04-23 14:30:52
  * @FilePath: \C-language-study-homework\week08\times16\times16_q01.c
  * @Stu_ID: 2019X....X229_Lu7fer
  * @Github: https://github.com/Lu7fer/C-language-study-homework
