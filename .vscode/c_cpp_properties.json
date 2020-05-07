@@ -3,7 +3,7 @@
         {
             "name": "Win32",
             "includePath": [
-                "${workspaceFolder}/**",
+                "${workspaceFolder}/zTest/linked-list",
                 "D:\\Program Files (x86)\\MinGW\\include",
                 "D:\\Program Files (x86)\\MinGW\\msys\\1.0\\include"
             ],
@@ -15,7 +15,7 @@
             ],
             "compilerPath": "\"D:\\Program Files (x86)\\MinGW\\bin\\gcc.exe\"",
             "cppStandard": "c++11",
-            "intelliSenseMode": "${default}",
+            "intelliSenseMode": "gcc-x64",
             "cStandard": "c99",
             "compilerArgs": [],
             "browse": {
