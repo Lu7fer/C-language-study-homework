@@ -23,6 +23,8 @@
                     "\"${file}\"",
                     "-I",
                     "${workspaceFolder}",
+                    "-I",
+                    "${fileDirname}",
                     "-L",
                     "${workspaceFolder}",
                     "-o",
