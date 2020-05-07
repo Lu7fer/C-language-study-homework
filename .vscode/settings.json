@@ -128,4 +128,5 @@
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "explorer.confirmDelete": false,
     "editor.rulers": [],
+   
 }
