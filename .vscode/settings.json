@@ -16,6 +16,7 @@
         "cmath": "c",
         "setjmp.h": "c",
         "windows.h": "c",
+        "wchar.h": "c"
     },
     "files.autoSave": "afterDelay",
     "editor.fontFamily": "'Comic Sans MS',经典行书简,Consolas, 'Courier New', monospace",

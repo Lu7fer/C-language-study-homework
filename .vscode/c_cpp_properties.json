@@ -4,6 +4,7 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/zTest/linked-list",
+                "${workspaceFolder}/**",
                 "D:\\Program Files (x86)\\MinGW\\include",
                 "D:\\Program Files (x86)\\MinGW\\msys\\1.0\\include"
             ],
