@@ -43,7 +43,7 @@ void arrange(struct candidate *s1, struct candidate *s2)
 
 int main(int argc, char const *argv[])
 {
-    struct candidate tmp, candidates[4];
+    struct candidate candidates[4];
     int loop_i, loop_j, flag, total_vote, valid_vote, vote;
     float waste_rate;
     //输入候选人姓名,并编号,同时初始化结构体
