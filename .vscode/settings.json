@@ -93,7 +93,12 @@
             //     "end": " */\r\n"
             // },
             // 一次匹配多种文件后缀文件 不用重复设置 h/hpp/
-            "c/cpp/java": {
+            "c": {
+                "head": "/** ", // 统一增加几个*号
+                "middle": " * @",
+                "end": " */\n\n#include <stdio.h>\n#include <stdlib.h>\n"
+            },
+            "cpp/java": {
                 "head": "/** ", // 统一增加几个*号
                 "middle": " * @",
                 "end": " */"
