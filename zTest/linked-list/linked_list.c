@@ -37,6 +37,7 @@ If not, see <http: //www.gnu.org/licenses/>.
 
 #define _LINKED_LIST(Z) (Z)
 #define LIST linked_list_t *
+#define VOID void
 #define DATA void *
 #define INDEX size_t index
 
@@ -45,8 +46,11 @@ extern inline LIST _LINKED_LIST(clsh_insert)(LIST,INDEX,DATA);
 extern inline LIST _LINKED_LIST(clsh_add_last)(LIST,DATA);
 extern inline DATA _LINKED_LIST(clsh_get_first)(LIST);
 extern inline DATA _LINKED_LIST(clsh_get_last)(LIST);
-extern inline DATA _LINKED_LIST(clsh_get)(LIST,INDEX);
-extern inline LIST _LINKED_LIST(clsh_remode_last)(LIST);
+extern inline DATA _LINKED_LIST(clsh_getdata)(LIST,INDEX);
+extern inline LIST _LINKED_LIST(clsh_remove_last)(LIST);
+extern inline LIST _LINKED_LIST(clsh_remove_first)(LIST);
+extern inline LIST _LINKED_LIST(clsh_remove)(LIST,INDEX);
+extern inline VOID _LINKED_LIST(clsh_free_list)(LIST);
 
 int main(int argc, char const *argv[])
 {
