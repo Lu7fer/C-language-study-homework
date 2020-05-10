@@ -115,12 +115,9 @@ int main(int argc, char const *argv[])
     for (loop_i = 0, loop_j = 1; loop_i < 4; loop_i++)
     {
         printf("得票第:%d的候选人是:%s,共得到:%d票\n", loop_j, candidates[loop_i].name, candidates[loop_i].vote);
-        //对于排名相等的处理:不等排名loop_j++
-        if (loop_i <3 && (candidates[loop_i].vote != candidates[loop_i+1].vote))
-        {
+        //对于排名相等的处理:不等的话:排名loop_j ++
+        if (loop_i < 3 && (candidates[loop_i].vote != candidates[loop_i + 1].vote))
             loop_j++;
-        }
+        system("pause");
+        return 0;
     }
-    system("pause");
-    return 0;
-}
