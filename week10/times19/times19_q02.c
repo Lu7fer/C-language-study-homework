@@ -23,8 +23,11 @@ If not, see <http: //www.gnu.org/licenses/>.
 
 struct candidate
 {
+    //候选人代号
     int code;
+    //候选人姓名
     char name[20];
+    //候选人票数
     int vote;
 };
 /**
@@ -83,7 +86,7 @@ int main(int argc, char const *argv[])
             total_vote++;
             //遍历结构体以寻找候选人
             for (loop_i = 0; loop_i < 4; loop_i++)
-            { 
+            {
                 //找到候选人
                 if (candidates[loop_i].code == vote)
                 {
@@ -113,7 +116,7 @@ int main(int argc, char const *argv[])
     {
         printf("得票第:%d的候选人是:%s,共得到:%d票\n", loop_j, candidates[loop_i].name, candidates[loop_i].vote);
         //对于排名相等的处理:不等排名loop_j++
-        if (loop_i > 0 || (candidates[loop_i - 1].vote != candidates[loop_i].vote))
+        if (loop_i <3 && (candidates[loop_i].vote != candidates[loop_i+1].vote))
         {
             loop_j++;
         }
