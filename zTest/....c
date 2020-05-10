@@ -21,11 +21,27 @@ If not, see <http: //www.gnu.org/licenses/>.
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
+struct student
+{
+    int num;       //学号
+    char name[20]; //姓名
+    char gender;   //3门课成绩
+    int age;       //平均成绩
+};
 int main(int argc, char const *argv[])
 {
-    int a[8] = {7, 6, 5, 4, 3, 2, 1, 0}, *p = &a[7];
-    *(p - 1) += (*p += 1, *(p -= 6) += 3, *(p + 4) += 1);
-
+    unsigned char c[32];
+    int *num = (int *)c, *age = (int *)(c + 25);
+    char *name = (c + 4);
+    char *gender = (c + 24);
+    *num = 15;
+    strcpy(name, "1234567890123456789");
+    *gender = 'm';
+    *age = 0xFFFFFFFF;
+    struct student *stu;
+    stu = (struct student *)c;
+    system("pause");
     return 0;
 }
