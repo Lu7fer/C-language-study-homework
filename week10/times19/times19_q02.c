@@ -21,47 +21,90 @@ If not, see <http: //www.gnu.org/licenses/>.
 #include <stdio.h>
 #include <stdlib.h>
 
-struct student
+struct candidate
 {
-    int num;
+    int code;
     char name[20];
-    int score;
+    int vote;
 };
 /**
  * 将形参中小的排在前
 */
-void arrange(struct student *s1, struct student *s2)
+void arrange(struct candidate *s1, struct candidate *s2)
 {
-    struct student tmp;
-    if((s1->score) > (s2->score))
+    struct candidate tmp;
+    if ((s1->vote) > (s2->vote))
     {
-        tmp=*s1;
-        *s1=*s2;
-        *s2=tmp;
+        tmp = *s1;
+        *s1 = *s2;
+        *s2 = tmp;
     }
 }
 
 int main(int argc, char const *argv[])
 {
-    struct student tmp, stus[4] = {
-                            {1001, "zhangsan", 85},
-                            {1002, "lisi", 72},
-                            {1003, "wangwu", 91},
-                            {1004, "liuliu", 84}};
-    int i, j;
-    for (i = 0; i < 4; i++)
+    struct candidate tmp, candidates[4];
+    int loop_i, loop_j, flag, total_vote, valid_vote, vote;
+    float waste_rate;
+    for (loop_i = 0; loop_i < 4; loop_i++)
     {
-        for (j = 1; j < 4 - i; j++)
+        printf("请输入第%d位候选人姓名:", loop_i + 1);
+        //init
+        scanf("%s", &(candidates[loop_i].name));
+        candidates[loop_i].code = loop_i + 1;
+        candidates[loop_i].vote = 0;
+        getchar();
+    }
+    puts("生成代号完毕\n");
+    for (loop_i = 0; loop_i < 4; loop_i++)
+        printf("候选人%s的代号为:%02d\n", candidates[loop_i].name, candidates[loop_i].code);
+    printf("开始投票,请输入候选人代号,错误代号记为废票,输入-1停止投票:\n");
+    //init
+    flag = 1;
+    total_vote = 0;
+    valid_vote = 0;
+    loop_j = 0;
+    while (flag)
+    {
+        loop_j++;
+        printf("请第%d位投票:\n", loop_j);
+        scanf("%d", &vote);
+        if (vote == -1)
         {
-            arrange((stus+j-1),(stus+j));
+            flag = 0;
+        }
+        else
+        {
+            total_vote++;
+            for (loop_i = 0; loop_i < 4; loop_i++)
+            {
+                if (candidates[loop_i].code == vote)
+                {
+                    candidates[loop_i].vote++;
+                    valid_vote++;
+                    break;
+                }
+            }
         }
     }
-
-    for ( i = 0; i < 4; i++)
+    puts("投票完毕,正在生成排名\n");
+    for (loop_i = 0; loop_i < 4; loop_i++)
     {
-        printf("%s的成绩是%d:\n",stus[i].name,stus[i].score);
+        for (loop_j = 1; loop_j < 4 - loop_i; loop_j++)
+        {
+            arrange((candidates + loop_j - 1), (candidates + loop_j));
+        }
     }
-    
+    waste_rate = (float)(total_vote - valid_vote) / (total_vote);
+    printf("废票率为:%4.2f%%\n", waste_rate * 100);
+    for (loop_i = 0, loop_j = 1; loop_i < 4; loop_i++)
+    {
+        printf("得票第%d的候选人是%s,共得到%d票\n", loop_j, candidates[loop_i].name, candidates[loop_i].vote);
+        if (loop_i > 0 || (candidates[loop_i - 1].vote != candidates[loop_i].vote))
+        {
+            loop_j++;
+        }
+    }
     system("pause");
     return 0;
 }
