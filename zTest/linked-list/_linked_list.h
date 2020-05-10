@@ -17,7 +17,6 @@ If not, see <http: //www.gnu.org/licenses/>.
 -------------------------------------------
  */
 
-#include <stdlib.h>
 #ifndef CLSH
 #define CLSH
 #endif /* CLSH */
@@ -26,6 +25,9 @@ If not, see <http: //www.gnu.org/licenses/>.
 #define __LINKEDLIST_H
 #endif /* __LINKEDLIST_C */
 
+#ifndef _STDLIB_H
+#include <stdlib.h>
+#endif /* _STDLIB_H */
 /**
  * 默认使用void*
  * typedef  nodedata_t 即可使用不同数据类型,类似于泛型
@@ -54,7 +56,7 @@ typedef struct node node_t;
 struct linked_list
 {
 	node_t *head;
-	size_t lenth;
+	size_t length;
 	node_t *tail;
 } linked_list;
 typedef struct linked_list linked_list_t;
@@ -65,7 +67,7 @@ typedef struct linked_list linked_list_t;
 linked_list_t *clsh_creat_linked_list()
 {
 	linked_list_t *list = (linked_list_t *)malloc(sizeof(linked_list_t));
-	list->lenth = 0;
+	list->length = 0;
 	list->head = NULL;
 	list->tail = NULL;
 	return list;
@@ -73,16 +75,16 @@ linked_list_t *clsh_creat_linked_list()
 
 /**
  * 添加到最后一个元素
- * 
+ * @return NULL则添加失败,原因:申请内存失败
 */
 linked_list_t *clsh_add_last(linked_list_t *list, void *append)
 {
 	node_t *n;
 	if (n = (node_t *)malloc(sizeof(node_t)))
 	{
-		n->data = _clsh_insert(append);
+		n->data = _clsh_memcpy(append);
 		n->next = NULL;
-		if (list->lenth == 0)
+		if (list->length == 0)
 		{
 			n->previous = NULL;
 			list->head = n;
@@ -94,7 +96,7 @@ linked_list_t *clsh_add_last(linked_list_t *list, void *append)
 			list->tail->next = n;
 			list->tail = n;
 		}
-		list->lenth++;
+		list->length++;
 		return list;
 	}
 	else
@@ -105,12 +107,12 @@ linked_list_t *clsh_add_last(linked_list_t *list, void *append)
 
 /**
  * 获取第一个元素
- * @param
- * @return
+ * @param linked_list_t 传入链表
+ * @return NULL 原因:链表没有元素
 */
 void *clsh_get_first(linked_list_t *list)
 {
-	if ((list->lenth) > 0)
+	if ((list->length) > 0)
 	{
 		return (list->head->data);
 	}
@@ -129,7 +131,7 @@ void *clsh_get_first(linked_list_t *list)
 */
 void *clsh_get_last(linked_list_t *list)
 {
-	if (list->lenth > 0)
+	if (list->length > 0)
 	{
 		return (list->tail->data);
 	}
@@ -139,17 +141,36 @@ void *clsh_get_last(linked_list_t *list)
 	}
 }
 
+/**
+ * @param size_t index 大于0时从头到尾,小于零时从尾到头类似Python
+ * @description index = 1返回第二个元素,index = -1返回倒数第一个元素
+ * @function 内部使用
+*/
 node_t *_clsh_get_node(linked_list_t *list, size_t index)
 {
 	node_t *nd;
-	if (index < list->lenth || index > -1)
+	index = (index < 0) ? index+list->length : index;
+	if (index < list->length && index > 0)
 	{
-		nd = list->head;
-		for (size_t i = 0; i < index; i++)
+		if (index < (list->length / 2))
 		{
-			nd = nd->next;
+			nd = list->head;
+			for (size_t i = 0; i < index; i++)
+			{
+				nd = nd->next;
+			}
+			return nd;
 		}
-		return nd;
+		else
+		{
+			nd = list->tail;
+			index -= list->length;
+			for (size_t i = -1; i > index; i--)
+			{
+				nd = nd->previous;
+			}
+			return nd;
+		}
 	}
 	else
 	{
@@ -163,10 +184,10 @@ node_t *_clsh_get_node(linked_list_t *list, size_t index)
  * @param int *element : a pointer of element we want get
  * @return if element exist, then get it and return 0,else return -1
  */
-void *clsh_get(linked_list_t *list, size_t index)
+void *clsh_getdata(linked_list_t *list, size_t index)
 {
 	node_t *nd;
-	if ((nd = _clsh_get_node(list, index)) != NULL)
+	if ((nd = _clsh_get_node(list, index)))
 	{
 		return (nd->data);
 	}
@@ -189,7 +210,7 @@ linked_list_t *clsh_insert(linked_list_t *list, size_t index, void *ele)
 	{
 		node_t *n = (node_t *)malloc(sizeof(node_t));
 		//
-		n->data = _clsh_insert(ele);
+		n->data = _clsh_memcpy(ele);
 		n->previous = nd->previous;
 		n->next = nd;
 		nd->previous->next = n;
@@ -203,12 +224,12 @@ linked_list_t *clsh_insert(linked_list_t *list, size_t index, void *ele)
 }
 
 /**
- * 
+ * 得到一个数据副本
 */
 #ifndef _STRING_H
 #include <string.h>
 #endif
-void *_clsh_insert(void *data)
+void *_clsh_memcpy(void *data)
 {
 	void *nodedata;
 	if (nodedata = malloc(sizeof(&data)))
@@ -220,27 +241,73 @@ void *_clsh_insert(void *data)
 		return NULL;
 	}
 }
+
+inline node_t *_clsh_has_previous(node_t *n)
+{
+	return n->previous;
+}
+
+inline node_t *_clsh_has_next(node_t *n)
+{
+	return n->next;
+}
+
+inline linked_list_t *clsh_remove_first(linked_list_t *list)
+{
+	if (list->length > 0)
+	{
+		free(list->head->data);
+		list->head = list->head->next;
+		free(list->tail->next);
+		list->length--;
+		list->head->previous = NULL;
+	}
+	return list;
+}
+
 /**
  *  移除最后一个元素
  *  @return 删除最后一个元素,并返回该list.如果没有元素可以删除,则不做处理,直接返回
  * */
-linked_list_t *clsh_remode_last(linked_list_t *list)
+inline linked_list_t *clsh_remove_last(linked_list_t *list)
 {
-	if (list->lenth > 0)
+	if (list->length > 0)
 	{
 		free(list->tail->data);
 		list->tail = list->tail->previous;
-		list->lenth--;
+		list->length--;
 		free(list->tail->next);
 		list->tail->next = NULL;
 	}
 	return list;
 }
 
-node_t *_clsh_has_next(node_t *n)
+linked_list_t *clsh_remove(linked_list_t *list, size_t index)
 {
-	return n->next;
+	node_t *node;
+	if (node = _clsh_get_node(list, index))
+	{
+		if (_clsh_has_next(node) && _clsh_has_previous(node))
+		{
+			node->previous->next = node->next;
+			node->next->previous = node->previous;
+			free(node->data);
+			free(node);
+		}
+		else
+		{
+			if (_clsh_has_previous(node))
+				clsh_remove_first(list);
+			clsh_remove_last(list);
+		}
+		return list;
+	}
+	else
+	{
+		return NULL;
+	}
 }
+
 /**
  * 该node后是否具有下一个node
  * @return 如果有则返回下一个node指针,如果没有则返回NULL
@@ -252,13 +319,17 @@ inline node_t *_clsh_next(node_t *n)
 
 void clsh_free_list(linked_list_t *list)
 {
-	if ((list->lenth) > 0)
+	if ((list->length) > 0)
 	{
 		size_t i;
-		node_t *pre, *this;
-		this = list->tail;
-		while (this = (this->previous))
-			free(this->next);
+		node_t  *this,*next;
+		this = list->head;
+		while (next = (this->next)){
+			free(this->data);
+			free(this);
+			this=next;
+		}
+		free(this->data);
 		free(this);
 	}
 	free(list);
