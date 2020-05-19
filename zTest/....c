@@ -21,27 +21,41 @@ If not, see <http: //www.gnu.org/licenses/>.
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
-struct student
+struct
 {
-    int num;       //学号
-    char name[20]; //姓名
-    char gender;   //3门课成绩
-    int age;       //平均成绩
-};
-int main(int argc, char const *argv[])
+    int num;
+    char name[10];
+    char sex;
+    char job;
+    union {
+        int clas;
+        char position[10];
+    } category;
+} person[2];
+int main()
 {
-    unsigned char c[32];
-    int *num = (int *)c, *age = (int *)(c + 25);
-    char *name = (c + 4);
-    char *gender = (c + 24);
-    *num = 15;
-    strcpy(name, "1234567890123456789");
-    *gender = 'm';
-    *age = 0xFFFFFFFF;
-    struct student *stu;
-    stu = (struct student *)c;
+    int i;
+    for (i = 0; i < 2; i++)
+    {
+        printf("please enter the date or person\n");
+        scanf("%d %s %c %c", &person[i].num, person[i].name, &person[i].sex, &person[i].job);
+        if (person[i].job == 's')
+            scanf("%d", &person[i].category.clas);
+        else if (person[i].job == 't')
+            scanf("%s", person[i].category.position);
+        else
+            printf("请重新输入");
+    }
+    printf("\n");
+    printf("NO.  name job class/position\n");
+    for (i = 0; i < 2; i++)
+    {
+        if (person[i].job == 's')
+            printf("%-6d %-10s %-4c %-4c%-10d\n", person[i].num, person[i].name, person[i].sex, person[i].job, person[i].category.clas);
+        else
+            printf("%-6d %-10s %-4c %-4c%-10s\n", person[i].num, person[i].name, person[i].sex, person[i].job, person[i].category.position);
+    }
     system("pause");
     return 0;
 }
