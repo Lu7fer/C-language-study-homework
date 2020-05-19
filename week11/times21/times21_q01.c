@@ -48,15 +48,15 @@ int main()
         else
             printf("Input err!");
     }
-        printf("\n");
-        printf("No.namesex job class/position\n");
-        for (i = 0; i < 2; i++)
-        {
-            if (person[i].job == 's')
-                printf("%-6d%-10s%-4c%-4c%-10d\n", person[i].num, person[i].name, person[i].sex, person[i].job, person[i].category.class);
-            else
-                printf("%-6d%10s%-4c%-4c%-10s\n", person[i].num, person[i].name, person[i].sex, person[i].job, person[i].category.position);
-        }
-        system("pause");
-        return 0;
+    printf("\n");
+    printf("No.namesex job class/position\n");
+    for (i = 0; i < 2; i++)
+    {
+        if (person[i].job == 's')
+            printf("%-6d%-10s%-4c%-4c%-10d\n", person[i].num, person[i].name, person[i].sex, person[i].job, person[i].category.class);
+        else
+            printf("%-6d%10s%-4c%-4c%-10s\n", person[i].num, person[i].name, person[i].sex, person[i].job, person[i].category.position);
     }
+    system("pause");
+    return 0;
+}
