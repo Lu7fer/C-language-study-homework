@@ -68,7 +68,8 @@
             "htm": 1
         },
         "beforeAnnotation": {}, // 头部注释之前插入内容
-        "afterAnnotation": {}, // 头部注释之后插入内容
+        "afterAnnotation": {
+         }, // 头部注释之后插入内容
         "specialOptions": {}, // 特殊字段自定义
         "switch": {
             "newlineAddAnnotation": false // 默认遇到换行符(\r\n \n \r)添加注释符号
