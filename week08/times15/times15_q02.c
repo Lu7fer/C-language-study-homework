@@ -20,7 +20,7 @@ If not, see <http: //www.gnu.org/licenses/>.
 #include <stdio.h>
 #include <stdlib.h>
 
-void strcpy(char *dest, char const *src)
+void strcpy1(char *dest, char const *src)
 {
     int i = 0;
     do
@@ -34,7 +34,7 @@ int main(int argc, char const *argv[])
     char dest[] = "This is destination!";
     char src[] = "This is sorce!";
     puts(dest);
-    strcpy(dest, src);
+    strcpy1(dest, src);
     puts(dest);
     system("pause");
     return 0;
