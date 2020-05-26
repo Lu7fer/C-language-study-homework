@@ -22,40 +22,40 @@ If not, see <http: //www.gnu.org/licenses/>.
 #include <stdio.h>
 #include <stdlib.h>
 
-struct
+int riqi[13] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+int days(int day, int year, int month)
 {
-    int num;
-    char name[10];
-    char sex;
-    char job;
-    union {
-        int clas;
-        char position[10];
-    } category;
-} person[2];
+    int m;
+    int psum = 0;
+    for (m = 1; m <= month; m++)
+        psum += riqi[m];
+    if (month <= 2)
+        return psum + day;
+    else if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0)
+        return psum + day + 1;
+    else
+        return psum + day;
+}
 int main()
 {
-    int i;
-    for (i = 0; i < 2; i++)
+    struct years
     {
-        printf("please enter the date or person\n");
-        scanf("%d %s %c %c", &person[i].num, person[i].name, &person[i].sex, &person[i].job);
-        if (person[i].job == 's')
-            scanf("%d", &person[i].category.clas);
-        else if (person[i].job == 't')
-            scanf("%s", person[i].category.position);
-        else
-            printf("请重新输入");
-    }
-    printf("\n");
-    printf("NO.  name job class/position\n");
-    for (i = 0; i < 2; i++)
-    {
-        if (person[i].job == 's')
-            printf("%-6d %-10s %-4c %-4c%-10d\n", person[i].num, person[i].name, person[i].sex, person[i].job, person[i].category.clas);
-        else
-            printf("%-6d %-10s %-4c %-4c%-10s\n", person[i].num, person[i].name, person[i].sex, person[i].job, person[i].category.position);
-    }
+        int day;
+        int month;
+        int year;
+    };
+    struct years y;
+    printf("请输入日期");
+    scanf("%d", &y.day);
+    getchar();
+    printf("请输入月份");
+    scanf("%d", &y.month);
+    getchar();
+    printf("请输入年份");
+    scanf("%d", &y.year);
+    getchar();
+    int result = days(y.day, y.year, y.month);
+    printf("%d年%d月是当年的第%d天", y.year, y.month, result);
     system("pause");
     return 0;
 }
