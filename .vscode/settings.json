@@ -18,7 +18,7 @@
         "windows.h": "c",
         "wchar.h": "c"
     },
-    "files.autoSave": "afterDelay",
+    "files.autoSave": "onFocusChange",
     "editor.fontFamily": "'Comic Sans MS',经典行书简,Consolas, 'Courier New', monospace",
     "editor.fontWeight": "100",
     "editor.formatOnPaste": true,
