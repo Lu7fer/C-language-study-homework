@@ -22,30 +22,33 @@ If not, see <http: //www.gnu.org/licenses/>.
 #include <stdio.h>
 #include <stdlib.h>
 
-#define FILEOPEN(x,y,z)  if(!(x=fopen(y,z)))              \
-                                {                                                   \
-                                    printf("%s can't open!\n",y);    \
-                                    system("pause");                      \
-                                    exit(1);                                     \
-                                }
+#define FILEOPEN(x, y, z)              \
+    if (!(x = fopen(y, z)))            \
+    {                                  \
+        printf("%s can't open!\n", y); \
+        system("pause");               \
+        exit(1);                       \
+    }
 
 int main(int argc, char const *argv[])
 {
     FILE *src;
     FILE *dest;
     char c;
-    FILEOPEN(src,"week13/times26/file1.txt","r")
-    FILEOPEN(dest,"week13/times26/file2.txt","a")
+    FILEOPEN(src, "week13/times26/file1.txt", "r")
+    FILEOPEN(dest, "week13/times26/file2.txt", "a")
     //加密规则:  大写A-W或小写a-w，每个字符加3 ，大写X-Z或 小写x-z每个字符减23.
-    while ((c=fgetc(src))!=EOF)
+    while ((c = fgetc(src)) != EOF)
     {
-        if((c>='A'&&c<='W')||(c>='a'&&c<='w')){
-            c+=3;
-        }else if (c>='X'&&c<='Z'||c>='x'&&c<='z')
+        if ((c >= 'A' && c <= 'W') || (c >= 'a' && c <= 'w'))
         {
-            c-=23;
+            c += 3;
         }
-        fputc(c,dest);
+        else if (c >= 'X' && c <= 'Z' || c >= 'x' && c <= 'z')
+        {
+            c -= 23;
+        }
+        fputc(c, dest);
     }
     fclose(src);
     fclose(dest);
