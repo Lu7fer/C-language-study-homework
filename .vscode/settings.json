@@ -19,7 +19,7 @@
         "wchar.h": "c"
     },
     "files.autoSave": "onFocusChange",
-    "editor.fontFamily": "'Comic Sans MS',经典行书简,Consolas, 'Courier New', monospace",
+    "editor.fontFamily": "'JetBrains Mono','Comic Sans MS',经典行书简,Consolas, 'Courier New', monospace",
     "editor.fontWeight": "100",
     "editor.formatOnPaste": true,
     "editor.quickSuggestions": {
@@ -125,11 +125,12 @@
             "use": true
         },
     },
-    "editor.fontSize": 15,
+    "editor.fontSize": 14,
     "terminal.integrated.confirmOnExit": true,
     "terminal.integrated.cursorStyle": "underline",
     "terminal.integrated.cursorBlinking": true,
-    "terminal.integrated.fontFamily": "Consolas,宋体",
+    "terminal.integrated.fontFamily": "'JetBrains Mono',Consolas,宋体",
+    "terminal.integrated.fontSize": 13,
     "debug.console.fontFamily": "Consolas,宋体",
     "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
