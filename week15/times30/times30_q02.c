@@ -6,7 +6,7 @@
  * @Stu_ID: 2019X....X229_Lu7fer
  * @Github: https://github.com/Lu7fer/C-language-study-homework
  */
-
+ 
 #include <stdio.h>
 #include <stdlib.h>
 #define SIZE 3
