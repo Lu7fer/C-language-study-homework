@@ -3,7 +3,8 @@ qiangguo.js
 .gitignore
 asd
 test.js
-test.c
-test.exe
+test*.c
+test*.exe
 /zhihu/*
 /zTest/*
+/.vscode/*
