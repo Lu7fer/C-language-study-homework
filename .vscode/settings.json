@@ -82,7 +82,7 @@
         "atSymbolObj": {}, //  更改单独语言/文件的@
         "colon": ": ", // 更改所有文件的注释冒号
         "colonObj": {}, //  更改单独语言/文件的冒号
-        //"filePathColon": "\\", // 默认值： mac: / window是: \
+        "filePathColon": "/", // 默认值： mac: / window是: \
         "showErrorMessage": true, // 是否显示插件错误通知 用于debugger
         "CheckFileChange": true, // 单个文件保存时进行diff检查
         "createHeader": true, // 新建文件自动添加头部注释
