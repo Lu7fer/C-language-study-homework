@@ -31,7 +31,9 @@
                     "\"${fileDirname}\\${fileBasenameNoExtension}.exe\"",
                     "-fexec-charset=GBK",
                     "-finput-charset=UTF-8",
-                    "-fwide-exec-charset=UTF-8"
+                    "-fwide-exec-charset=UTF-8",
+                    // "&",
+                    // "\"${fileDirname}\\${fileBasenameNoExtension}.exe\""
                 ]
             }
         }
