@@ -16,10 +16,11 @@
         "cmath": "c",
         "setjmp.h": "c",
         "windows.h": "c",
-        "wchar.h": "c"
+        "wchar.h": "c",
+        "cstdio": "c"
     },
     "files.autoSave": "onFocusChange",
-    "editor.fontFamily": "'JetBrains Mono','Comic Sans MS',经典行书简,Consolas, 'Courier New', monospace",
+    "editor.fontFamily": "'JetBrains Mono','【暖色君】趣圆体','Comic Sans MS',经典行书简,Consolas, 'Courier New', monospace",
     "editor.fontWeight": "100",
     "editor.formatOnPaste": true,
     "editor.quickSuggestions": {
@@ -97,7 +98,7 @@
             "c": {
                 "head": "/** ", // 统一增加几个*号
                 "middle": " * @",
-                "end": " */\n\n#include <stdio.h>\n#include <stdlib.h>\n"
+                "end": " */\n\n" //"#include <stdio.h>\n#include <stdlib.h>\n"
             },
             "cpp/java": {
                 "head": "/** ", // 统一增加几个*号
