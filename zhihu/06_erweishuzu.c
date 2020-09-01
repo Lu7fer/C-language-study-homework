@@ -23,7 +23,7 @@ If not, see <http: //www.gnu.org/licenses/>.
 int main()
 {
     int i, j, n;
-    //可输入的分数上限和下限由min与max决定,不然有bug
+    //可输入的分数上限和下限由min与max决定,不然可能有bug
     double sum, ave[2][5], x[5], tmp, max, min;
     printf("校园歌手大赛计分系统\n");
     for (n = 0; n < 10; n++)
